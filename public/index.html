@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -42,30 +43,20 @@
     <!-- Page-specific (main) content here -->
     
     <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </form>
-      </section>
-      <p>This is the para1</p>
-      <p>This is the para2</p>
-      <p>This is the para3</p>
-      <p>This is the para4</p>
-      <p>This is the para5</p>
-      <p>This is the para6</p>
-      <p>This is the para7</p>
-      <p>This is the para8</p>
-      <p>This is the para9</p>
-      <p>This is the para10</p>
-      <p>This is the para11</p>
-      <p>This is the para12</p>
-      <p>This is the para13</p>
-      <p>This is the para14</p>
+      <h2>Compose Tweet</h2>
+      <form action="/tweets" method="POST">
+        <section class="new-tweet">
+        <label class="new-tweet-title" for="tweet-text">What are you humming about?</label>
+          <textarea class="text-tweet" name="text" id="tweet-text"></textarea>
+          <div>
+            <button class="btn" type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </section>
+      </form>
     </main>
-    <footer></footer>
+    <footer>
+        <p>Random Text: I'm baby williamsburg polaroid brunch, pork belly plaid letterpress tattooed salvia synth. Knausgaard cray kale chips humblebrag hashtag occupy palo santo normcore meggings deep v slow-carb offal aesthetic mumblecore cold-pressed. Fanny pack marfa godard yr four dollar toast everyday carry. Truffaut tousled hella pork belly occupy everyday carry fix</p>
+  </footer>
   </body>
 </html>

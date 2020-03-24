@@ -1,0 +1,40 @@
+.new-tweet {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    padding-top: 5px;
+    padding-bottom: 50px;
+}
+
+.new-tweet-title {
+   float: left;
+}
+
+.counter {
+    text-align: right;
+    font-family: "bungee";
+    color: gray;
+    float: right;
+}
+
+.btn {
+    font-family: "bungee";
+    background-color: #4056A1;
+    color: #ffffff;
+    float: left
+}
+
+.text-tweet {
+    border: none;
+    border-bottom: 3px solid gray;
+    background: none;
+    width: 100%;
+    resize: none;
+    outline: none;
+}
+
+.text-tweet:focus {
+    border: 3px solid gray;
+    -webkit-transition: 0.5s;
+    transition: 0.25s;
+}
