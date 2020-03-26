@@ -2,7 +2,7 @@
     margin: auto;
     text-align: center;
     width: 100%;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     padding-bottom: 50px;
 }
 
@@ -38,4 +38,3 @@
     -webkit-transition: 0.5s;
     transition: 0.25s;
 }
-

@@ -67,7 +67,7 @@ const createTweetElement = database => {
       </header>
       <main class="tweet-main">
       <container class="text">
-          ${tweet}
+          ${escape(tweet)}
       </container>
       </main>
       <footer class="tweet-footer">
@@ -82,9 +82,6 @@ const createTweetElement = database => {
   `;
 };
 
-// createTweetElement(tweetData);
-
-// this function needed to be moved below createTweetElement()
 const renderTweets = tweets => {
   for (const tweet of tweets) {
     $result = createTweetElement(tweet);
@@ -102,13 +99,15 @@ $(".form").on("submit", event => {
 
 const submitTweet = () => {
   const input = $(".form").serialize();
+  //   $("<div>").text(input);
   //Counting the number of characters in the textbox.
   let chars = document.getElementById("tweet-text").value;
   let numOfChars = chars.length;
   if (numOfChars > 140) {
-    alert("Sorry cannot submit this tweet due to it's length!");
+    //Error msg function located at bottom.
+    errMsgSlide("err-msg1");
   } else if (numOfChars === 0) {
-    alert("Please enter content to tweet.");
+    errMsgSlide("err-msg2");
   } else {
     $.ajax({
       url: "/tweets",
@@ -155,3 +154,21 @@ const loadTweets = () => {
 //     }
 //   });
 // };
+
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const errMsgSlide = msg => {
+  if (
+    $(`.${msg}`)
+      .first()
+      .is(":hidden")
+  ) {
+    $(`.${msg}`).slideDown("slow");
+  } else {
+    $(`.${msg}`).hide();
+  }
+};
