@@ -106,7 +106,7 @@ const submitTweet = () => {
   if (input.length - 5 > 140) {
     console.log("Sorry cannot submit this tweet!");
     alert("Sorry cannot submit this tweet due to it's length!");
-  } else if (input.length - 5 === 0) {
+  } else if (input.length - 5 === 0 || input === "" || input === "null") {
     alert("Please enter content to tweet.");
     console.log("Sorry cannot submit this tweet!");
   } else {
