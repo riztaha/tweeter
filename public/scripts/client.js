@@ -102,13 +102,13 @@ $(".form").on("submit", event => {
 
 const submitTweet = () => {
   const input = $(".form").serialize();
-  // Our input starts off with "text=" so we will have to subtract 5 from the total length of the input.
-  if (input.length - 5 > 140) {
-    console.log("Sorry cannot submit this tweet!");
+  //Counting the number of characters in the textbox.
+  let chars = document.getElementById("tweet-text").value;
+  let numOfChars = chars.length;
+  if (numOfChars > 140) {
     alert("Sorry cannot submit this tweet due to it's length!");
-  } else if (input.length - 5 === 0 || input === "" || input === "null") {
+  } else if (numOfChars === 0) {
     alert("Please enter content to tweet.");
-    console.log("Sorry cannot submit this tweet!");
   } else {
     $.ajax({
       url: "/tweets",
@@ -116,7 +116,8 @@ const submitTweet = () => {
       data: input
     })
       .then(() => {
-        loadTweet();
+        // $(".tweets-container").empty();
+        loadTweets();
         console.log("Submitting Tweet");
       })
       .catch(err => {
@@ -125,7 +126,7 @@ const submitTweet = () => {
   }
 };
 
-const loadTweet = () => {
+const loadTweets = () => {
   $.ajax({
     url: "/tweets",
     type: "GET",
@@ -133,11 +134,24 @@ const loadTweet = () => {
   })
     .then(response => {
       console.log("Retrieving Tweet");
-      //   console.log(response);
-      renderTweets(response);
-      console.log("Data Retrieved!");
+      //   console.log(response.reverse())
+      $(".tweets-container").empty();
+      renderTweets(response.reverse());
+      //   for (let tweet of response) {
+      // console.log(tweet);
+      // createTweetElement(tweet);
+      //   }
     })
     .catch(err => {
       console.log("Error", err);
     });
 };
+
+// const loadTweets = () => {
+//   $.get("/tweets", function(tweets) {
+//     for (let tweet of tweets) {
+//       const $addTweet = createTweetElement(tweet);
+//       $("#tweet-container").prepend($addTweet);
+//     }
+//   });
+// };
