@@ -1,7 +1,7 @@
 .new-tweet {
     margin: auto;
     text-align: center;
-    width: 50%;
+    width: 100%;
     padding-top: 5px;
     padding-bottom: 50px;
 }
@@ -21,7 +21,7 @@
     font-family: "bungee";
     background-color: #4056A1;
     color: #ffffff;
-    float: left
+    float: left;
 }
 
 .text-tweet {
@@ -38,3 +38,4 @@
     -webkit-transition: 0.5s;
     transition: 0.25s;
 }
+

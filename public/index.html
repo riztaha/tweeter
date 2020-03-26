@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
     <!-- Text Styles-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300i,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
@@ -21,8 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/client.js" defer></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js" defer></script>
   </head>
 
   <body>
@@ -33,7 +33,7 @@
     </nav>
     
     <header class="header">
-      <div>
+      <div style="padding-top: 20px;">
           <img src="/images/profile-hex.png"> 
       </div>
       <br>
@@ -44,7 +44,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <h2>Compose Tweet</h2>
-      <form action="/tweets" method="POST">
+      <form action="/tweets" method="POST" class="form">
         <section class="new-tweet">
         <label class="new-tweet-title" for="tweet-text">What are you humming about?</label>
           <textarea class="text-tweet" name="text" id="tweet-text"></textarea>
@@ -54,9 +54,29 @@
           </div>
         </section>
       </form>
+      <wbr>
+        <section class="tweets-container">
+        <article>
+          <header class="tweet-header">
+            <img src="/images/profile-hex.png"> 
+            Taha
+            <container class="handle">@riztaha</container>
+          </header>
+          <main class="tweet-main"> 
+            <container class="text">
+              Yayyy my tweet shows up!
+            </container>
+          </main>
+          <footer class="tweet-footer">
+            Created 10 days ago
+            <container class='social'>
+              <img src="/images/flag.png" alt="">
+              <img src="/images/retweet.png" alt="">
+              <img src="/images/heart.png" alt="">
+            </container>
+          </footer>
+        </article>
+      </section>
     </main>
-    <footer>
-        <p>Random Text: I'm baby williamsburg polaroid brunch, pork belly plaid letterpress tattooed salvia synth. Knausgaard cray kale chips humblebrag hashtag occupy palo santo normcore meggings deep v slow-carb offal aesthetic mumblecore cold-pressed. Fanny pack marfa godard yr four dollar toast everyday carry. Truffaut tousled hella pork belly occupy everyday carry fix</p>
-  </footer>
   </body>
 </html>

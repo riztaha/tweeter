@@ -19,7 +19,6 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro';
-  
 }
 
 /*
@@ -32,3 +31,66 @@ body {
   padding-top: 500px;
   width: 90%;
  }
+
+ article {
+  border: 3px solid gray;
+  margin-top: 100px;
+  margin-bottom: 40px;
+  height: auto;
+  padding: 15px;
+  font-family: 'Source Sans Pro';
+}
+
+article:hover {
+  box-shadow: 5px 5px rgba(2, 2, 2, 0.473);
+  text-shadow: 0.35px 0.35px;
+}
+
+article:hover .handle{
+  display: inline
+}
+
+.tweet-header {
+  /* margin: auto; */
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.tweet-header img {
+  width: 70px;
+  height: 70px;
+  float: left;
+  display: block;
+  padding-right: 5px
+}
+
+.handle {
+  float: right;
+  display: none;
+}
+
+.tweet-main {
+  margin: auto;
+  border-bottom: 3px solid gray;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+.text {
+  padding: 2px;
+}
+
+.tweet-footer {
+  margin: auto;
+  font-size: small;
+  text-align: left;
+  padding: 10px;
+}
+
+.social img {
+  width: 25px;
+  height: 25px;
+  float: right;
+  padding: 2px;
+}

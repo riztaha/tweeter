@@ -6,7 +6,6 @@ $().ready(function() {
     number = +numOfChars;
     $("#counter").text(140 - number);
     if (140 - number < 0) {
-      console.log("red");
       document.getElementById("counter").style.color = "red";
     } else {
       document.getElementById("counter").style.color = "gray";
