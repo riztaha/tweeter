@@ -3,6 +3,8 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -46,8 +48,8 @@
       <h2>Compose Tweet</h2>
       <form action="/tweets" method="POST" class="form">
         <section class="new-tweet">
-          <section class="err-msg1" id="errMsg">⚠︎ Your message is too long. Reduce character limit below 140. ⚠︎ </section>
-          <section class="err-msg2" id="errMsg">⚠︎ Please enter content to tweet. ⚠︎ </section>
+          <section class="err-msg1" id="errMsg" onclick=`hide(${errMsg})`>⚠︎ Your message is too long. Reduce character limit below 140. ⚠︎ </section>
+          <section class="err-msg2" id="errMsg" onclick="hide(`#errMsg`)">⚠︎ Please enter content to tweet. ⚠︎ </section>
         <label class="new-tweet-title" for="tweet-text">What are you humming about?</label>
           <textarea class="text-tweet" name="text" id="tweet-text"></textarea>
           <div>
