@@ -24,11 +24,11 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
  .container {
   margin: auto;
   background-color:#f4f1ec ;
   text-align: center;
-  padding-top: 500px;
   width: 90%;
  }
 
@@ -40,16 +40,6 @@ body {
   padding: 15px;
   font-family: 'Source Sans Pro';
 }
-
-article:hover {
-  box-shadow: 5px 5px rgba(2, 2, 2, 0.473);
-  text-shadow: 0.35px 0.35px;
-}
-
-article:hover .handle{
-  display: inline
-}
-
 
 .tweet-header {
   text-align: left;
@@ -95,6 +85,7 @@ article:hover .handle{
   height: 25px;
   float: right;
   padding: 2px;
+  display: none;
 }
 
 #errMsg {
@@ -102,4 +93,32 @@ article:hover .handle{
   color: red;
   border: solid 3px red;
   padding: 10px;
+}
+
+.header {
+  padding-top: 30px;
+}
+
+/* Hover effects for handle and social images.*/
+article:hover {
+  box-shadow: 5px 5px rgba(2, 2, 2, 0.473);
+  text-shadow: 0.35px 0.35px;
+}
+
+article:hover .handle {
+  display: inline
+}
+
+article:hover .social img {
+  display: inline
+}
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+   .container {
+    flex-direction: column;
+    text-align: center;
+    padding-right: 50px;
+    max-width: 800px;
+  }
 }

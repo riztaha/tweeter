@@ -5,7 +5,7 @@ $().ready(function() {
     let numOfChars = chars.length;
     number = +numOfChars;
     $("#counter").text(140 - number);
-    if (140 - number < 0 || number === 0) {
+    if (140 - number < 0) {
       document.getElementById("counter").style.color = "red";
     } else {
       document.getElementById("counter").style.color = "gray";

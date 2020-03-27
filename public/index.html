@@ -5,7 +5,6 @@
     <title>Tweeter - Home Page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
@@ -32,55 +31,35 @@
     <!-- Top nav bar (fixed) -->
     <nav class="nav">
       <span>Tweeter</span>
+      <button class="compose" onclick="showForm()"><span>Write a new tweet</span></button>
     </nav>
-    
-    <header class="header">
-      <div style="padding-top: 20px;">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Your Name</h2>
-      </div>
-    </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <h2>Compose Tweet</h2>
-      <form action="/tweets" method="POST" class="form">
-        <section class="new-tweet">
-          <section class="err-msg1" id="errMsg" onclick=`hide(${errMsg})`>⚠︎ Your message is too long. Reduce character limit below 140. ⚠︎ </section>
-          <section class="err-msg2" id="errMsg" onclick="hide(`#errMsg`)">⚠︎ Please enter content to tweet. ⚠︎ </section>
-        <label class="new-tweet-title" for="tweet-text">What are you humming about?</label>
-          <textarea class="text-tweet" name="text" id="tweet-text"></textarea>
-          <div>
-            <button class="btn" type="submit">Tweet</button>
-            <output name="counter" class="counter" id="counter" for="tweet-text">140</output>
-          </div>
-        </section>
-      </form>
-      <wbr>
+    <div class="desktop">
+      <header class="header">
+        <div>
+            <img class="avatar" src="/images/profile-hex.png"> 
+        </div>
+            <h2 id="name">Anonymous</h2>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <!-- <h2>Compose Tweet</h2> -->
+        <form action="/tweets" method="POST" class="form">
+          <section class="new-tweet">
+            <section class="err-msg1" id="errMsg" >⚠︎ Your message is too long. Reduce character limit below 140. ⚠︎ </section>
+            <section class="err-msg2" id="errMsg" >⚠︎ Please enter content to tweet. ⚠︎ </section>
+          <label class="new-tweet-title" for="tweet-text">What are you humming about?</label>
+            <textarea class="text-tweet" name="text" id="tweet-text"></textarea>
+            <div>
+              <button class="btn" type="submit">Tweet</button>
+              <output name="counter" class="counter" id="counter" for="tweet-text">140</output>
+            </div>
+          </section>
+        </form>
+        <wbr>
         <section class="tweets-container">
-        <!-- <article>
-          <header class="tweet-header">
-            <img src="/images/profile-hex.png"> 
-            Taha
-            <container class="handle">@riztaha</container>
-          </header>
-          <main class="tweet-main"> 
-            <container class="text">
-              Yayyy my tweet shows up!
-            </container>
-          </main>
-          <footer class="tweet-footer">
-            Created 10 days ago
-            <container class='social'>
-              <img src="/images/flag.png" alt="">
-              <img src="/images/retweet.png" alt="">
-              <img src="/images/heart.png" alt="">
-            </container>
-          </footer>
-        </article> -->
-      </section>
-    </main>
+        <!-- Database from /tweets/ gets injected here -->
+        </section>
+      </main>
+    </div>
   </body>
 </html>

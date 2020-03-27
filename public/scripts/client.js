@@ -1,33 +1,43 @@
+//Pop-up to set user's name
+//Currently missing functionality so that user can add tweets with their own name/handle attached.
+function myName() {
+  let name = prompt("Please enter your name:", "Anonymous");
+  if (name == null || name == "") {
+    name = "Anonymous";
+  }
+  document.getElementById("name").innerHTML = name;
+}
+
+setTimeout(() => {
+  myName();
+}, 500);
+
 const createTweetElement = database => {
-  const name = database.user["name"];
-  const avatar = database.user["avatars"];
-  const handle = database.user["handle"];
-  const tweet = database.content.text;
-  const creation = database.created_at;
-  //   const { name, avatar, handle } = database;
-
-  // const { name, avatars, handle } = database.user;
-  // console.log(database.user, " =====> database.user");
-  // console.log(name, avatars, handle);
-  //   console.log(database);
-
-  //   const { text } = database.content;
-  //   const { created_at } = database;
-  //   console.log(text, created_at);
+  const { name, avatars, handle } = database.user;
+  const { text } = database.content;
+  //To get the full date properly written:
+  const fullDate = new Date(database.created_at);
+  const date =
+    fullDate.getUTCMonth() +
+    1 +
+    "/" +
+    fullDate.getUTCDate() +
+    "/" +
+    fullDate.getFullYear();
 
   return `<article>
       <header class="tweet-header">
-      <img src="${avatar}">
+      <img src="${avatars}">
       ${name}
       <container class="handle">${handle}</container>
       </header>
       <main class="tweet-main">
       <container class="text">
-          ${escape(tweet)}
+          ${escape(text)}
       </container>
       </main>
       <footer class="tweet-footer">
-      Created ${creation}
+      Created ${date}
       <container class='social'>
           <img src="/images/flag.png" alt="">
           <img src="/images/retweet.png" alt="">
@@ -40,7 +50,7 @@ const createTweetElement = database => {
 
 const renderTweets = tweets => {
   for (const tweet of tweets) {
-    $result = createTweetElement(tweet);
+    let $result = createTweetElement(tweet);
     $(".tweets-container").append($result);
   }
 };
@@ -48,14 +58,12 @@ const renderTweets = tweets => {
 // AJAX will be used below
 // Calling on the form where the button is located
 $(".form").on("submit", event => {
-  //   console.log("Clicked!");
   event.preventDefault();
   submitTweet();
 });
 
 const submitTweet = () => {
   const input = $(".form").serialize();
-  //   $("<div>").text(input);
   //Counting the number of characters in the textbox.
   let chars = document.getElementById("tweet-text").value;
   let numOfChars = chars.length;
@@ -71,7 +79,6 @@ const submitTweet = () => {
       data: input
     })
       .then(() => {
-        // $(".tweets-container").empty();
         loadTweets();
         console.log("Submitting Tweet");
       })
@@ -82,34 +89,22 @@ const submitTweet = () => {
 };
 
 const loadTweets = () => {
+  errMsgHide("err-msg1");
+  errMsgHide("err-msg2");
   $.ajax({
     url: "/tweets",
     type: "GET",
     datatype: "JSON"
   })
     .then(response => {
-      console.log("Retrieving Tweet");
-      //   console.log(response.reverse())
+      console.log("Retrieving Tweets");
       $(".tweets-container").empty();
       renderTweets(response.reverse());
-      //   for (let tweet of response) {
-      // console.log(tweet);
-      // createTweetElement(tweet);
-      //   }
     })
     .catch(err => {
       console.log("Error", err);
     });
 };
-
-// const loadTweets = () => {
-//   $.get("/tweets", function(tweets) {
-//     for (let tweet of tweets) {
-//       const $addTweet = createTweetElement(tweet);
-//       $("#tweet-container").prepend($addTweet);
-//     }
-//   });
-// };
 
 // Cross-site scripting function
 const escape = function(str) {
@@ -120,26 +115,32 @@ const escape = function(str) {
 
 //Error handling
 const errMsgSlide = msg => {
-  if (
-    $(`.${msg}`)
-      .first()
-      .is(":hidden")
-  ) {
+  if ($(`.${msg}`).is(":hidden")) {
     $(`.${msg}`).slideDown("slow");
   } else {
-    $(`.${msg}`).hide();
+    $(`.${msg}`).slideUp("slow");
   }
 };
 
-const hide = errMsg => {
-  var x = document.getElementById(errMsg);
-  // if (x.style.display === "none") {
-  //   x.style.display = "block";
-  // } else {
-  $(x).slideUp("slow");
-  $(x).hide();
-  // }
+const errMsgHide = msg => {
+  $(`.${msg}`).slideUp("slow");
+};
+
+// Toggle for Submit Tweet button
+const showForm = () => {
+  // $(".form").slideDown("slow");
+  if ($(".form").is(":hidden")) {
+    $(".form").slideDown("slow");
+  } else {
+    $(".form").slideUp("slow");
+  }
+  $(".form")[0].scrollIntoView({
+    behavior: "smooth",
+    block: "end"
+  });
 };
 
 //Loads all previous tweets as soon as the page loads up
 loadTweets();
+
+//
