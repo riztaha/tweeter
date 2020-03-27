@@ -20,3 +20,9 @@ I built this by praciticing my HTML, CSS, JS, jQuery and AJAX front-end skills.
 - Node 5.10.x or above
 - Body-parser
 - Chance
+
+## Screenshots
+!["Index Page"](https://github.com/riztaha/tweeter/blob/master/docs/Index.png)
+!["Tablet/Mobile Index Page"](https://github.com/riztaha/tweeter/blob/master/docs/Tablet%20version.png)
+!["Newest tweet updates the feed"](https://github.com/riztaha/tweeter/blob/master/docs/Feed%20updates.png)
+!["Error message & counter turns red if content is too long"](https://github.com/riztaha/tweeter/blob/master/docs/Relevant%20Error%20%26%20Red%20Counter.png)
