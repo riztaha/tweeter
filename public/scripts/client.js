@@ -142,5 +142,3 @@ const showForm = () => {
 
 //Loads all previous tweets as soon as the page loads up
 loadTweets();
-
-//
